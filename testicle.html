@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0rsley</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #121212; color: white; margin: 0; }
+        .box { text-align: center; background: #1e1e1e; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        input { padding: 10px; border-radius: 5px; border: none; margin-bottom: 10px; width: 80%; }
+        button { padding: 10px 20px; border-radius: 5px; border: none; background: #454545; color: white; cursor: pointer; font-weight: bold; }
+        button:hover { background: #940000; }
+        #error { color: #ff4d4d; font-size: 0.8rem; margin-top: 10px; min-height: 1rem; }
+
+        /* Secret Button: Invisible but clickable */
+        .secret-btn {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 20px; /* Big enough to tap */
+            height: 20px;
+            background: #131313; /* Almost matches the #121212 background */
+            border: none;
+            cursor: default;
+            padding: 0;
+            margin: 0;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>' my birth date '</h2>
+        <input type="password" id="passInput" placeholder="">
+        <br>
+        <button onclick="checkPass()">unlock</button>
+        <div id="error"></div>
+    </div>
+
+    <button class="secret-btn" onclick="secretAction()"></button>
+
+    <script>
+        function checkPass() {
+            const pass = document.getElementById('passInput').value;
+            const error = document.getElementById('error');
+            
+            if (pass === "28") { 
+                window.location.href = "https://docs.google.com/document/d/1N8YEu2-1wqr7QLhthxxGOk5vDJBmaANGvN5vvnX4g74/edit?usp=sharing";
+            } else {
+                error.innerText = "Wrong Person";
+            }
+        }
+
+        function secretAction() {
+            alert("you found it!");
+            window.location.href = "https://docs.google.com/document/d/174MFUvpvwGsfl14Kf6ZTCWiVek8ZIy5O7CyfK0ZDJBU/edit?usp=sharing"; 
+        }
+    </script>
+</body>
+</html>
